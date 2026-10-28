@@ -73,7 +73,7 @@ fi
 
 # Saved from a running frame before a reflash (Tailscale identity, SSH host
 # keys, browser data):
-#   tools/frame-ssh 'tar -C / -cpf - var/lib/tailscale etc/ssh/ssh_host_* home/kiosk/.local/share/wpe' > secrets/frame-state.tar
+#   tools/frame-ssh 'cd / && tar -cpf - var/lib/tailscale etc/ssh/ssh_host_* home/kiosk/.local/share/wpe' > secrets/frame-state.tar
 if [ $rootfs = 1 ] && [ -f "$ROOT/secrets/frame-state.tar" ]; then
 	echo "== saved frame state (secrets/frame-state.tar) -> rootfs"
 	"$SH" 'mkdir -p /mnt/root && mount -t ext4 /dev/mmcblk0p2 /mnt/root'

@@ -18,6 +18,31 @@ and a USB cable on the frame's OTG port. If you have the same frame (or another 
 board), you or your coding agent should be able to reuse most of it. Read the
 [notes for agents](#notes-for-agents) first.
 
+## Just got the frame? Start with ADB
+
+The stock firmware hides a root ADB switch. This was found by
+[@angiuoli](https://github.com/angiuoli) in
+[wesbos/photo-frame-dashboard#121](https://github.com/wesbos/photo-frame-dashboard/issues/121#issuecomment-6271181523),
+and was tested on Kelarior V1.0.6:
+
+1. Connect the barrel-jack AC adapter and a data-capable USB-C cable.
+2. Open **Settings → About**.
+3. Tap the **Kelarior Version** row exactly **5 times**.
+4. Immediately tap the **Peer ID** row exactly **5 times**.
+5. An **ADB** switch appears. Enable it.
+
+```text
+$ adb devices -l
+... device product:astar_kelarior model:K101 device:astar-kelarior
+
+$ adb shell id
+uid=0(root) gid=0(root) groups=0(root),...
+```
+
+ADB runs as root, which is all the [first install](#first-install) needs. Our frame ran
+`6.0.1_K101_Kelarior1.0.2_V260725`. We used ADB over Wi-Fi (for example `adb tcpip 5555`, then
+`adb connect <frame-ip>:5555`), so that the USB port stays free for FEL.
+
 ## What works
 
 | | |
@@ -164,7 +189,7 @@ Another unit may need its own calibration.
 ### Reflashing (keeping Tailscale and host keys)
 
 ```sh
-tools/frame-ssh 'tar -C / -cpf - var/lib/tailscale etc/ssh/ssh_host_* home/kiosk/.local/share/wpe' > secrets/frame-state.tar
+tools/frame-ssh 'cd / && tar -cpf - var/lib/tailscale etc/ssh/ssh_host_* home/kiosk/.local/share/wpe' > secrets/frame-state.tar
 tools/frame-ssh 'touch /boot/firmware/dashframe-fel; reboot'   # next boot enters FEL
 tools/fel-boot-linux.sh
 tools/install-sd.sh
