@@ -1,0 +1,3 @@
+# Root grows to fill the SD partition on first boot (x-systemd.growfs).
+/dev/mmcblk0p2	/		ext4	defaults,noatime,x-systemd.growfs	0 1
+/dev/mmcblk0p1	/boot/firmware	vfat	defaults,noatime,umask=0022		0 2

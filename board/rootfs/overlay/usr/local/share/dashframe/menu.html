@@ -1,0 +1,44 @@
+<!doctype html>
+<!-- Kiosk menu, opened by a long press in a screen corner
+     (dashframe-menu-gesture). Each button asks dashframe-menu-action, on
+     127.0.0.1:8098, to act on the browser from outside the page. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>dashframe menu</title>
+<style>
+  html, body { margin: 0; height: 100%; background: #111; color: #eee;
+    font: 28px sans-serif; }
+  body { display: grid; grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto 1fr 1fr; gap: 24px; padding: 40px;
+    box-sizing: border-box; }
+  h1 { grid-column: 1 / -1; margin: 0; font-size: 22px; font-weight: normal;
+    color: #888; letter-spacing: .1em; text-transform: uppercase; }
+  button { font: inherit; color: inherit; background: #262626; border: 2px solid #3a3a3a;
+    border-radius: 16px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 8px; }
+  button small { font-size: 18px; color: #999; }
+  button:active { background: #3a3a3a; }
+  #hard { background: #1d3557; border-color: #2f5a8f; }
+  #status { position: fixed; inset: 0; display: none; align-items: center;
+    justify-content: center; background: #111; font-size: 34px; }
+</style>
+<h1>dashframe</h1>
+<button id="hard" data-action="hard-refresh">Hard refresh
+  <small>clear the cache, restart the browser on the dashboard</small></button>
+<button data-action="reload">Reload page<small>the page you were on</small></button>
+<button data-action="dashboard">Dashboard<small>go to the home page</small></button>
+<button data-action="close">Close<small>back to the page you were on</small></button>
+<div id="status"></div>
+<script>
+  const status = document.getElementById("status");
+  for (const b of document.querySelectorAll("button")) {
+    b.addEventListener("click", () => {
+      status.textContent = b.firstChild.textContent.trim() + "…";
+      status.style.display = "flex";
+      fetch("http://127.0.0.1:8098/" + b.dataset.action, { mode: "no-cors" }).catch(() => {
+        status.textContent = "menu service not reachable";
+        setTimeout(() => { status.style.display = "none"; }, 2000);
+      });
+    });
+  }
+</script>

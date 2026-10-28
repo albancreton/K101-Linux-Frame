@@ -1,0 +1,23 @@
+#!/bin/sh
+# Runs once per connection to 127.0.0.1:8098 (kiosk-menu.socket), with the
+# socket on stdin/stdout. menu.html requests GET /<action>.
+. /etc/dashframe.conf
+read -r method path _
+printf 'HTTP/1.0 204 No Content\r\nAccess-Control-Allow-Origin: *\r\n\r\n'
+exec >/dev/null </dev/null
+
+cog() {
+	runuser -u kiosk -- env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u kiosk)/bus cogctl "$@"
+}
+
+case $path in
+/hard-refresh)
+	# Drop WebKit's HTTP cache (cookies and site storage stay) and start over.
+	systemctl stop kiosk
+	rm -rf /home/kiosk/.cache/wpe
+	systemctl start kiosk
+	;;
+/reload) cog previous; sleep 0.5; cog reload ;;
+/dashboard) cog open "$DASHBOARD_URL" ;;
+/close) cog previous ;;
+esac

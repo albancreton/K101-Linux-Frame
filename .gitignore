@@ -1,0 +1,7 @@
+secrets/
+out/
+src/
+# Vendor kernel modules from the stock firmware: reverse-engineering reference
+# only, not redistributed (see hw/HARDWARE.md for how to extract them).
+hw/modules/
+__pycache__/

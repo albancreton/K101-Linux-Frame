@@ -1,0 +1,8 @@
+# GSL1680: a resting finger jitters by 1-3 raw units every frame, which WebKit
+# turns into a page that flickers up and down. A kernel fuzz of 6 drops
+# changes under 3 units (~4 px) and smooths the rest.
+evdev:name:silead_ts:*
+ EVDEV_ABS_00=:::6
+ EVDEV_ABS_01=:::6
+ EVDEV_ABS_35=:::6
+ EVDEV_ABS_36=:::6

@@ -1,0 +1,11 @@
+[Unit]
+Description=Open the kiosk menu on a long press in a screen corner
+After=kiosk.service
+
+[Service]
+ExecStart=/usr/local/bin/dashframe-menu-gesture
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=graphical.target

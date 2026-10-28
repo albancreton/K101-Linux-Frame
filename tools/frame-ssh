@@ -1,0 +1,5 @@
+#!/bin/sh
+# SSH to the frame over the USB link (or set FRAME=host for Wi-Fi/Tailscale).
+D=$(cd "$(dirname "$0")/.." && pwd)
+exec ssh -i "$D/secrets/dashframe_ed25519" -o IdentitiesOnly=yes -o BatchMode=yes \
+	-o StrictHostKeyChecking=accept-new -o UserKnownHostsFile="$D/out/known_hosts" -o ConnectTimeout=10 "root@${FRAME:-10.42.0.1}" "$@"

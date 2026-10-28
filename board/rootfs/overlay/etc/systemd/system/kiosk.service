@@ -1,0 +1,25 @@
+[Unit]
+Description=Dashboard kiosk (cage + WPE WebKit)
+After=systemd-user-sessions.service systemd-logind.service
+Conflicts=getty@tty1.service
+
+[Service]
+User=kiosk
+PAMName=login
+TTYPath=/dev/tty1
+StandardInput=tty
+StandardOutput=journal
+UtmpIdentifier=tty1
+UtmpMode=user
+Environment=XDG_SESSION_TYPE=wayland
+# logind gives local sessions an ambient CAP_WAKE_ALARM, and bubblewrap (WebKit's
+# sandbox) refuses to run with any capability it was not setuid for.
+CapabilityBoundingSet=~CAP_WAKE_ALARM
+ExecStart=/usr/bin/cage -s -- /usr/local/bin/dashframe-kiosk
+Restart=always
+RestartSec=5
+# cog ignores SIGTERM; nothing in the kiosk needs a clean shutdown.
+TimeoutStopSec=3
+
+[Install]
+WantedBy=graphical.target

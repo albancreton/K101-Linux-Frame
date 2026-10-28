@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- Display-path test: the whole screen alternates between two colours once a
+     second, so any panel line that misses an update shows up as a thin line
+     of the other colour. The label follows the wall clock: tools/display-load-test.sh
+     puts memory load on the system during the second half of every minute. -->
+<meta charset="utf-8">
+<title>linetest</title>
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; }
+  body { display: flex; align-items: center; justify-content: center;
+    font: bold 90px monospace; color: #fff; }
+  .a { background: #c00000; } .b { background: #0030c0; }
+</style>
+<body class="a"><div id="l"></div></body>
+<script>
+  const l = document.getElementById("l");
+  setInterval(() => {
+    const s = new Date().getSeconds();
+    document.body.className = s % 2 ? "b" : "a";
+    l.textContent = (s >= 30 ? "LOAD ON " : "LOAD OFF ") + (s % 30);
+  }, 100);
+</script>

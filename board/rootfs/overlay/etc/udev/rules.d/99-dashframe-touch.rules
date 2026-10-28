@@ -1,0 +1,4 @@
+# GSL1680 touch calibration (tools: board/rootfs/overlay/usr/local/share/dashframe/calibrate.html).
+# Without the vendor's coordinate library the raw range only covers ~x 255..1286,
+# y 10..640 of the screen; fitted from 5 taps on 2026-10-28 (residual <12 px).
+ACTION=="add|change", KERNEL=="event*", ATTRS{name}=="silead_ts", ENV{LIBINPUT_CALIBRATION_MATRIX}="1.239853 -0.014930 -0.237504 0.042014 1.253153 -0.046827"

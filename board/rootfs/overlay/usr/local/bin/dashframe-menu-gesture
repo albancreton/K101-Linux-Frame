@@ -1,0 +1,57 @@
+#!/bin/sh
+# Open the kiosk menu (menu.html) when a finger rests in the MENU_CORNER corner
+# of the screen for MENU_HOLD_SECONDS. The backlight blinks when the hold
+# registers.
+. /etc/dashframe.conf
+corner=${MENU_CORNER:-top-left}
+hold=${MENU_HOLD_SECONDS:-2}
+touch=/dev/input/by-path/platform-1c2ac00.i2c-event
+
+# Blink the backlight as soon as the hold registers: cog takes a moment to show
+# the menu, and the backlight answers instantly.
+blink() {
+	bl=/sys/class/backlight/backlight/brightness
+	level=$(cat $bl)
+	for _ in 1 2; do echo 1 > $bl; sleep 0.12; echo "$level" > $bl; sleep 0.12; done
+}
+
+open_menu() {
+	blink &
+	runuser -u kiosk -- env DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u kiosk)/bus \
+		cogctl open file:///usr/local/share/dashframe/menu.html
+}
+
+# libinput reports raw touch units (printed as "(X/Ymm)"; the column before it
+# varies); map them to the screen with the calibration matrix from the udev
+# rule. awk prints "start" when a single finger lands in the corner and
+# "cancel" when it lifts, leaves the corner, or a second finger joins.
+matrix=$(udevadm info -q property "$touch" | sed -n 's/^LIBINPUT_CALIBRATION_MATRIX=//p')
+# stdbuf and -W interactive: libinput and mawk both buffer their pipes.
+stdbuf -oL libinput debug-events --device "$touch" | mawk -W interactive -v corner="$corner" -v matrix="${matrix:-1 0 0 0 1 0}" '
+	BEGIN { split(matrix, m, " ") }
+	function in_corner(   p, nx, ny, x, y) {
+		if (!match($0, /\([0-9.]+\/ *[0-9.]+mm\)/)) return 0
+		split(substr($0, RSTART + 1, RLENGTH - 4), p, "/")
+		nx = p[1] / 1280; ny = p[2] / 800	# touchscreen-size-x/y in the DT
+		x = m[1] * nx + m[2] * ny + m[3]
+		y = m[4] * nx + m[5] * ny + m[6]
+		return (corner ~ /left/ ? x < 0.06 : x > 0.94) && (corner ~ /top/ ? y < 0.08 : y > 0.92)
+	}
+	$2 == "TOUCH_DOWN" {
+		fingers++
+		if (fingers == 1 && in_corner()) { armed = 1; print "start"; fflush() }
+		else if (armed) { armed = 0; print "cancel"; fflush() }
+	}
+	$2 == "TOUCH_MOTION" && armed && !in_corner() { armed = 0; print "cancel"; fflush() }
+	$2 == "TOUCH_UP" {
+		if (fingers > 0) fingers--
+		if (armed) { armed = 0; print "cancel"; fflush() }
+	}
+' | while read -r ev; do
+	[ -n "$timer" ] && kill "$timer" 2>/dev/null
+	timer=
+	if [ "$ev" = start ]; then
+		(sleep "$hold" && open_menu) &
+		timer=$!
+	fi
+done

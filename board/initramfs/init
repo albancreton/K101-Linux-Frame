@@ -1,0 +1,36 @@
+#!/bin/sh
+# Bring-up initramfs: no rootfs, just enough to look at the hardware.
+# Shell on the USB gadget serial port (/dev/ttyGS0 -> host /dev/ttyACM0).
+/bin/busybox --install -s /bin
+mkdir -p /proc /sys /dev /tmp /mnt /etc /var
+mount -t proc proc /proc
+mount -t sysfs sysfs /sys
+mount -t devtmpfs devtmpfs /dev 2>/dev/null
+mount -t debugfs debugfs /sys/kernel/debug
+echo "dashframe: initramfs up" > /dev/kmsg
+
+# Feed the watchdog U-Boot armed: reaching here means the kernel booted.
+[ -c /dev/watchdog ] && watchdog -t 4 -T 16 /dev/watchdog
+
+# Backlight to full so the panel (if lit) is visible.
+for b in /sys/class/backlight/*; do
+	[ -e "$b/max_brightness" ] && cat "$b/max_brightness" > "$b/brightness"
+done
+
+# USB gadget Ethernet: 10.42.0.1, with DHCP for the host on the other end.
+ifconfig lo 127.0.0.1 up
+ifconfig usb0 10.42.0.1 netmask 255.255.255.0 up
+mkdir -p /var/lib/misc
+printf 'start 10.42.0.10\nend 10.42.0.20\ninterface usb0\noption subnet 255.255.255.0\n' > /etc/udhcpd.conf
+touch /var/lib/misc/udhcpd.leases
+udhcpd /etc/udhcpd.conf
+
+# Wait for the gadget serial port, then keep a shell on it.
+while true; do
+	if [ -c /dev/ttyGS0 ]; then
+		# Not setsid: as PID 1 we are a session leader, so setsid would fork
+		# and this loop would pile up shells on the same port.
+		sh -l </dev/ttyGS0 >/dev/ttyGS0 2>&1
+	fi
+	sleep 1
+done

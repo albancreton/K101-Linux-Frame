@@ -1,0 +1,36 @@
+diff --git a/drivers/input/touchscreen/silead.c b/drivers/input/touchscreen/silead.c
+index 5ccc96764..d7e70331d 100644
+--- a/drivers/input/touchscreen/silead.c
++++ b/drivers/input/touchscreen/silead.c
+@@ -499,7 +499,7 @@ static int silead_ts_get_id(struct i2c_client *client)
+ 
+ static int silead_ts_setup(struct i2c_client *client)
+ {
+-	int error;
++	int error, i;
+ 	u32 status;
+ 
+ 	/*
+@@ -537,10 +537,19 @@ static int silead_ts_setup(struct i2c_client *client)
+ 		pm_runtime_disable(&client->dev);
+ 	}
+ 
+-	silead_ts_set_power(client, SILEAD_POWER_OFF);
+-	silead_ts_set_power(client, SILEAD_POWER_ON);
++	/*
++	 * Right after power-up the first transfer sometimes ends in an I2C
++	 * bus error (seen on an Allwinner A33 board, ~2 boots in 5); a power
++	 * cycle and another attempt always succeeds.
++	 */
++	for (i = 0; i < 3; i++) {
++		silead_ts_set_power(client, SILEAD_POWER_OFF);
++		silead_ts_set_power(client, SILEAD_POWER_ON);
+ 
+-	error = silead_ts_get_id(client);
++		error = silead_ts_get_id(client);
++		if (!error)
++			break;
++	}
+ 	if (error) {
+ 		dev_err(&client->dev, "Chip ID read error %d\n", error);
+ 		return error;

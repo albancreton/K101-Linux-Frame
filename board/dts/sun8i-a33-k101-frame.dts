@@ -1,0 +1,155 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * K101 photo frame (Allwinner A33, sold as "Kelarior").
+ * See hw/HARDWARE.md for where each value comes from.
+ */
+
+/dts-v1/;
+#include "sun8i-a33.dtsi"
+#include "sun8i-reference-design-tablet.dtsi"
+
+/ {
+	model = "K101 photo frame";
+	compatible = "dashframe,k101-frame", "allwinner,sun8i-a33";
+
+	aliases {
+		serial0 = &uart0;
+	};
+
+	chosen {
+		stdout-path = "serial0:115200n8";
+	};
+
+	/* PL6 (wl_reg_on) powers the RTL8188FU on the internal USB1 host port. */
+	reg_wifi: regulator-wifi {
+		compatible = "regulator-fixed";
+		regulator-name = "wifi-power";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpio = <&r_pio 0 6 GPIO_ACTIVE_HIGH>; /* PL6 */
+		enable-active-high;
+	};
+};
+
+/*
+ * Unlike the reference design (dcdc2), the CPU rail is dcdc3: the stock
+ * firmware runs it at 1.32 V at 1.2 GHz while dcdc2 stays at 1.1 V.
+ */
+&cpu0 {
+	cpu-supply = <&reg_dcdc3>;
+};
+
+/* The stock firmware runs the CPU at 1.2 GHz / 1.32 V (dvfs_table LV3). */
+&cpu0_opp_table {
+	opp-1104000000 {
+		opp-hz = /bits/ 64 <1104000000>;
+		opp-microvolt = <1320000>;
+		clock-latency-ns = <244144>; /* 8 32k periods */
+	};
+
+	opp-1200000000 {
+		opp-hz = /bits/ 64 <1200000000>;
+		opp-microvolt = <1320000>;
+		clock-latency-ns = <244144>; /* 8 32k periods */
+	};
+};
+
+/* Both on at 3.3 V in the stock firmware; dldo1 feeds the Wi-Fi module. */
+&reg_dldo1 {
+	regulator-always-on;
+};
+
+&reg_dldo2 {
+	regulator-always-on;
+	regulator-min-microvolt = <3300000>;
+	regulator-max-microvolt = <3300000>;
+	regulator-name = "vcc-dldo2";
+};
+
+&de {
+	status = "okay";
+};
+
+&tcon0 {
+	status = "okay";
+};
+
+&dphy {
+	status = "okay";
+};
+
+&dsi {
+	vcc-dsi-supply = <&reg_dcdc1>;
+	status = "okay";
+
+	/* JD9365DA-H3; the stock firmware powers it from dc1sw only. */
+	panel@0 {
+		compatible = "dashframe,k101-frame-panel", "jadard,jd9365da-h3";
+		reg = <0>;
+		vdd-supply = <&reg_dc1sw>;
+		vccio-supply = <&reg_dc1sw>;
+		reset-gpios = <&pio 7 7 GPIO_ACTIVE_LOW>; /* PH7 */
+		backlight = <&backlight>;
+		/*
+		 * 800x1280 panel mounted with its left side up (top of the panel
+		 * on the frame's right): a 1280x800 landscape frame. Verified on
+		 * hardware; the console needs fbcon=rotate:1 since the panel
+		 * attaches after fbdev is set up.
+		 */
+		rotation = <270>;
+	};
+};
+
+&ehci0 {
+	status = "okay";
+};
+
+&ohci0 {
+	status = "okay";
+};
+
+&usbphy {
+	usb1_vbus-supply = <&reg_wifi>;
+};
+
+/* Soldered debug header: UART0 on PB0 (TX) / PB1 (RX). */
+&pio {
+	uart0_pb_pins: uart0-pb-pins {
+		pins = "PB0", "PB1";
+		function = "uart0";
+	};
+};
+
+&uart0 {
+	pinctrl-names = "default";
+	pinctrl-0 = <&uart0_pb_pins>;
+	status = "okay";
+};
+
+/* The reference design routes its console to r_uart instead. */
+&r_uart {
+	status = "disabled";
+};
+
+/* Backlight: PWM0 on PH0, 40 kHz, normal polarity, no separate enable pin. */
+&backlight {
+	pwms = <&pwm 0 25000 0>;
+	/delete-property/ enable-gpios;
+};
+
+&pwm {
+	pinctrl-names = "default";
+	pinctrl-0 = <&pwm0_pin>;
+	status = "okay";
+};
+
+&touchscreen {
+	compatible = "silead,gsl1680";
+	vddio-supply = <&reg_ldo_io1>;
+	firmware-name = "gsl1680-k101-frame.fw";
+	touchscreen-size-x = <1280>;
+	touchscreen-size-y = <800>;
+	/* Matches the landscape display orientation (verified by tapping corners). */
+	touchscreen-inverted-x;
+	status = "okay";
+};

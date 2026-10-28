@@ -1,0 +1,29 @@
+CONFIG_ARM=y
+CONFIG_ARCH_SUNXI=y
+CONFIG_DEFAULT_DEVICE_TREE="sun8i-a33-k101-frame"
+CONFIG_SPL=y
+CONFIG_MACH_SUN8I_A33=y
+# DRAM values from the stock sys_config (dram_para)
+CONFIG_DRAM_CLK=552
+CONFIG_DRAM_ZQ=31675
+CONFIG_DRAM_ODT_EN=y
+# Console on UART0 = PB0/PB1 (soldered header)
+CONFIG_CONS_INDEX=1
+# Panel is MIPI-DSI, which U-Boot's sunxi video driver can't drive
+# CONFIG_VIDEO_SUNXI is not set
+# CONFIG_SYS_MALLOC_CLEAR_ON_INIT is not set
+CONFIG_CMD_POWEROFF=y
+CONFIG_FAT_WRITE=y
+CONFIG_CMD_GPIO=y
+CONFIG_CMD_CACHE=y
+# USB OTG gadget (VID 1f3a): SD card as USB mass storage (`ums 0 mmc 0`) and a
+# CDC-ACM console (`setenv stdout serial,usbacm`) for working without a UART adapter
+CONFIG_USB_MUSB_GADGET=y
+CONFIG_USB_GADGET_DOWNLOAD=y
+CONFIG_CMD_USB_MASS_STORAGE=y
+CONFIG_USB_FUNCTION_ACM=y
+CONFIG_CONSOLE_MUX=y
+# When loaded over FEL with a script, run only that script, then stay at the prompt
+CONFIG_USE_BOOTCOMMAND=y
+CONFIG_BOOTCOMMAND="if test -n \"${fel_booted}\" && test -n \"${fel_scriptaddr}\"; then source ${fel_scriptaddr}; else run distro_bootcmd; fi"
+CONFIG_CMD_WDT=y

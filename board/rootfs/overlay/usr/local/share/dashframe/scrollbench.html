@@ -1,0 +1,66 @@
+<!doctype html>
+<!-- Scroll benchmark for comparing browser engines on the frame: a long grid
+     of dashboard-like cards, scrolled programmatically for DURATION seconds
+     while every frame interval is recorded. Prints one "SCROLLBENCH {json}"
+     console line and shows the result on screen. -->
+<meta charset="utf-8">
+<title>scrollbench</title>
+<style>
+  body { margin: 0; padding: 40px 150px; background: #fafafa; color: #222;
+    font: 15px sans-serif; }
+  h1 { font-size: 22px; color: #999; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .card { background: #737373; border: 1px solid #333; border-radius: 6px;
+    padding: 16px; height: 96px; color: #eee;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+  .card b { display: block; font-size: 17px; margin-bottom: 8px; }
+  .card i { float: right; width: 9px; height: 9px; border-radius: 50%;
+    background: #2ecc40; }
+  .card span { color: #c8c8c8; }
+  #result { position: fixed; top: 10px; right: 10px; background: #000; color: #0f0;
+    font: 16px monospace; padding: 8px 12px; white-space: pre; z-index: 1; }
+</style>
+<h1>scrollbench</h1>
+<div class="grid" id="grid"></div>
+<div id="result">warming up…</div>
+<script>
+  const DURATION = 15000, SPEED = 600;  // ms, px/s
+  const grid = document.getElementById("grid");
+  for (let i = 0; i < 240; i++) {
+    const c = document.createElement("div");
+    c.className = "card";
+    c.innerHTML = `<i></i><b>Service ${i + 1}</b><span>Some description of what ` +
+      `service ${i + 1} does, long enough to wrap onto two lines.</span>`;
+    grid.appendChild(c);
+  }
+  const out = document.getElementById("result");
+  setTimeout(() => {
+    const frames = [];
+    let start = null, last = null;
+    function step(t) {
+      if (start === null) { start = last = t; }
+      else { frames.push(t - last); last = t; }
+      const y = ((t - start) / 1000) * SPEED;
+      window.scrollTo(0, y % (document.body.scrollHeight - innerHeight));
+      if (t - start < DURATION) { requestAnimationFrame(step); return; }
+      const s = [...frames].sort((a, b) => a - b);
+      const pct = p => s[Math.min(s.length - 1, Math.floor(p * s.length))];
+      const r = {
+        engine: navigator.userAgent.match(/(Chrome|Version)\/[\d.]+/)?.[0] || "?",
+        frames: frames.length,
+        fps: +(frames.length / ((last - start) / 1000)).toFixed(1),
+        median_ms: +pct(0.5).toFixed(1),
+        p95_ms: +pct(0.95).toFixed(1),
+        max_ms: +s[s.length - 1].toFixed(1),
+        over_50ms: frames.filter(f => f > 50).length,
+      };
+      console.log("SCROLLBENCH " + JSON.stringify(r));
+      // Also report to a listener on the frame (works without a compositor to screenshot):
+      //   nc -l -p 8099 | grep -o "SCROLLBENCH[^ ]*"
+      new Image().src = "http://127.0.0.1:8099/SCROLLBENCH" + encodeURIComponent(JSON.stringify(r));
+      out.textContent = Object.entries(r).map(([k, v]) => `${k}: ${v}`).join("\n");
+    }
+    out.textContent = "running…";
+    requestAnimationFrame(step);
+  }, 5000);  // let the page settle first
+</script>

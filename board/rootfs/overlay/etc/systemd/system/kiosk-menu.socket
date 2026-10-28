@@ -1,0 +1,9 @@
+[Unit]
+Description=Kiosk menu actions (menu.html -> 127.0.0.1:8098)
+
+[Socket]
+ListenStream=127.0.0.1:8098
+Accept=yes
+
+[Install]
+WantedBy=sockets.target

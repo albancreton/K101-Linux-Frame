@@ -1,0 +1,8 @@
+[Unit]
+Description=Kiosk menu action
+
+[Service]
+ExecStart=/usr/local/bin/dashframe-menu-action
+StandardInput=socket
+StandardOutput=socket
+StandardError=journal

@@ -1,0 +1,903 @@
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      product
+    sub_key:   name           type      value
+               version        string    "A33-Tablet"
+               machine        string    "U708HC"
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      platform
+    sub_key:   name           type      value
+               eraseflag      int       1
+               next_work      int       3
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      target
+    sub_key:   name           type      value
+               boot_clock     int       1008
+               storage_type   int       0
+               burn_key       int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      power_sply
+    sub_key:   name           type      value
+               dcdc1_vol      int       3000
+               dcdc2_vol      int       1100
+               dcdc3_vol      int       1200
+               dcdc4_vol      int       0
+               dcdc5_vol      int       1500
+               aldo2_vol      int       2500
+               aldo3_vol      int       3000
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      card_boot
+    sub_key:   name           type      value
+               logical_start  int       40960
+               sprite_gpio0   invalid type!
+               next_work      int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      pm_para
+    sub_key:   name           type      value
+               standby_mode   int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      card0_boot_para
+    sub_key:   name           type      value
+               sdc_d1         gpio      (gpio: 0xa0 / PF0, mul: 2, pull 1, drv 2, data -1)
+               sdc_d0         gpio      (gpio: 0xa1 / PF1, mul: 2, pull 1, drv 2, data -1)
+               sdc_clk        gpio      (gpio: 0xa2 / PF2, mul: 2, pull 1, drv 2, data -1)
+               sdc_cmd        gpio      (gpio: 0xa3 / PF3, mul: 2, pull 1, drv 2, data -1)
+               sdc_d3         gpio      (gpio: 0xa4 / PF4, mul: 2, pull 1, drv 2, data -1)
+               sdc_d2         gpio      (gpio: 0xa5 / PF5, mul: 2, pull 1, drv 2, data -1)
+               card_ctrl      int       0
+               card_high_speedint       1
+               card_line      int       4
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      card2_boot_para
+    sub_key:   name           type      value
+               sdc_clk        gpio      (gpio: 0x45 / PC5, mul: 3, pull 1, drv 2, data -1)
+               sdc_cmd        gpio      (gpio: 0x46 / PC6, mul: 3, pull 1, drv 2, data -1)
+               sdc_d0         gpio      (gpio: 0x48 / PC8, mul: 3, pull 1, drv 2, data -1)
+               sdc_d1         gpio      (gpio: 0x49 / PC9, mul: 3, pull 1, drv 2, data -1)
+               sdc_d2         gpio      (gpio: 0x4a / PC10, mul: 3, pull 1, drv 2, data -1)
+               sdc_d3         gpio      (gpio: 0x4b / PC11, mul: 3, pull 1, drv 2, data -1)
+               card_line      int       4
+               sdc_2xmode     int       1
+               card_ctrl      int       2
+               card_high_speedint       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      twi_para
+    sub_key:   name           type      value
+               twi_scl        gpio      (gpio: 0xe2 / PH2, mul: 2, pull -1, drv -1, data -1)
+               twi_sda        gpio      (gpio: 0xe3 / PH3, mul: 2, pull -1, drv -1, data -1)
+               twi_port       int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      uart_para
+    sub_key:   name           type      value
+               uart_tx        gpio      (gpio: 0x20 / PB0, mul: 3, pull 1, drv -1, data -1)
+               uart_rx        gpio      (gpio: 0x21 / PB1, mul: 3, pull 1, drv -1, data -1)
+               uart_debug_portint       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      jtag_para
+    sub_key:   name           type      value
+               jtag_ms        gpio      (gpio: 0xa0 / PF0, mul: 3, pull -1, drv -1, data -1)
+               jtag_ck        gpio      (gpio: 0xa5 / PF5, mul: 3, pull -1, drv -1, data -1)
+               jtag_do        gpio      (gpio: 0xa3 / PF3, mul: 3, pull -1, drv -1, data -1)
+               jtag_di        gpio      (gpio: 0xa1 / PF1, mul: 3, pull -1, drv -1, data -1)
+               jtag_enable    int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      clock
+    sub_key:   name           type      value
+               pll3           int       297
+               pll4           int       300
+               pll6           int       600
+               pll8           int       408
+               pll9           int       480
+               pll10          int       297
+               pll_cpupat     int       0
+               pll_gpupat     int       -1002379674
+               pll_videopat   int       0
+               pll_vepat      int       0
+               pll_hsicpat    int       0
+               pll_depat      int       0
+               pll_mipipat    int       0
+               pll_mipitun    int       -1979703288
+               pll_mipibias   int       -133168128
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      dram_para
+    sub_key:   name           type      value
+               dram_clk       int       552
+               dram_type      int       3
+               dram_zq        int       31675
+               dram_odt_en    int       1
+               dram_para1     int       284427264
+               dram_para2     int       0
+               dram_mr0       int       7280
+               dram_mr1       int       64
+               dram_mr2       int       24
+               dram_mr3       int       0
+               dram_tpr0      int       4661583
+               dram_tpr1      int       29501771
+               dram_tpr2      int       397379
+               dram_tpr3      int       0
+               dram_tpr4      int       0
+               dram_tpr5      int       0
+               dram_tpr6      int       0
+               dram_tpr7      int       0
+               dram_tpr8      int       0
+               dram_tpr9      int       0
+               dram_tpr10     int       0
+               dram_tpr11     int       0
+               dram_tpr12     int       168
+               dram_tpr13     int       257
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      wakeup_src_para
+    sub_key:   name           type      value
+               wakeup_src_wl  gpio      (gpio: 0x167 / PL7, mul: 4, pull -1, drv -1, data 0)
+               cpu_freq       int       48
+               pll_ratio      int       273
+               dram_selfresh_enint       1
+               dram_freq      int       36
+               cpu_en         int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      twi0
+    sub_key:   name           type      value
+               twi_scl        gpio      (gpio: 0xe2 / PH2, mul: 2, pull -1, drv -1, data -1)
+               twi_sda        gpio      (gpio: 0xe3 / PH3, mul: 2, pull -1, drv -1, data -1)
+               twi_used       int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      twi1
+    sub_key:   name           type      value
+               twi_scl        gpio      (gpio: 0xe4 / PH4, mul: 2, pull -1, drv -1, data -1)
+               twi_sda        gpio      (gpio: 0xe5 / PH5, mul: 2, pull -1, drv -1, data -1)
+               twi_used       int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      twi2
+    sub_key:   name           type      value
+               twi_scl        gpio      (gpio: 0x8c / PE12, mul: 3, pull -1, drv -1, data -1)
+               twi_sda        gpio      (gpio: 0x8d / PE13, mul: 3, pull -1, drv -1, data -1)
+               twi_used       int       1
+               frequency      int       50000
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      uart0
+    sub_key:   name           type      value
+               uart_tx        gpio      (gpio: 0x20 / PB0, mul: 3, pull 1, drv -1, data -1)
+               uart_rx        gpio      (gpio: 0x21 / PB1, mul: 3, pull 1, drv -1, data -1)
+               uart_type      int       2
+               uart_used      int       1
+               uart_port      int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      uart1
+    sub_key:   name           type      value
+               uart_tx        gpio      (gpio: 0xc6 / PG6, mul: 2, pull 1, drv -1, data -1)
+               uart_rx        gpio      (gpio: 0xc7 / PG7, mul: 2, pull 1, drv -1, data -1)
+               uart_rts       gpio      (gpio: 0xc8 / PG8, mul: 2, pull 1, drv -1, data -1)
+               uart_cts       gpio      (gpio: 0xc9 / PG9, mul: 2, pull 1, drv -1, data -1)
+               uart_used      int       0
+               uart_type      int       4
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      uart2
+    sub_key:   name           type      value
+               uart_tx        gpio      (gpio: 0x20 / PB0, mul: 2, pull 1, drv -1, data -1)
+               uart_rx        gpio      (gpio: 0x21 / PB1, mul: 2, pull 1, drv -1, data -1)
+               uart_rts       gpio      (gpio: 0x22 / PB2, mul: 2, pull 1, drv -1, data -1)
+               uart_cts       gpio      (gpio: 0x23 / PB3, mul: 2, pull 1, drv -1, data -1)
+               uart_used      int       0
+               uart_type      int       4
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      uart3
+    sub_key:   name           type      value
+               uart_tx        gpio      (gpio: 0xe6 / PH6, mul: 3, pull 1, drv -1, data -1)
+               uart_rx        gpio      (gpio: 0xe7 / PH7, mul: 3, pull 1, drv -1, data -1)
+               uart_rts       gpio      (gpio: 0xe8 / PH8, mul: 3, pull 1, drv -1, data -1)
+               uart_cts       gpio      (gpio: 0xe9 / PH9, mul: 3, pull 1, drv -1, data -1)
+               uart_used      int       0
+               uart_type      int       4
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      uart4
+    sub_key:   name           type      value
+               uart_tx        gpio      (gpio: 0x4 / PA4, mul: 2, pull 1, drv -1, data -1)
+               uart_rx        gpio      (gpio: 0x5 / PA5, mul: 2, pull 1, drv -1, data -1)
+               uart_rts       gpio      (gpio: 0x6 / PA6, mul: 2, pull 1, drv -1, data -1)
+               uart_cts       gpio      (gpio: 0x7 / PA7, mul: 2, pull 1, drv -1, data -1)
+               uart_port      int       4
+               uart_type      int       2
+               uart_used      int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      s_uart0
+    sub_key:   name           type      value
+               s_uart_tx      gpio      (gpio: 0x162 / PL2, mul: 2, pull -1, drv -1, data -1)
+               s_uart_rx      gpio      (gpio: 0x163 / PL3, mul: 2, pull -1, drv -1, data -1)
+               s_uart_used    int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      spi0
+    sub_key:   name           type      value
+               spi_mosi       gpio      (gpio: 0x40 / PC0, mul: 3, pull -1, drv -1, data -1)
+               spi_miso       gpio      (gpio: 0x41 / PC1, mul: 3, pull -1, drv -1, data -1)
+               spi_sclk       gpio      (gpio: 0x42 / PC2, mul: 3, pull -1, drv -1, data -1)
+               spi_cs0        gpio      (gpio: 0x43 / PC3, mul: 3, pull 1, drv -1, data -1)
+               spi_used       int       0
+               spi_cs_bitmap  int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      spi1
+    sub_key:   name           type      value
+               spi_cs0        gpio      (gpio: 0x0 / PA0, mul: 2, pull 1, drv -1, data -1)
+               spi_sclk       gpio      (gpio: 0x1 / PA1, mul: 2, pull -1, drv -1, data -1)
+               spi_mosi       gpio      (gpio: 0x2 / PA2, mul: 2, pull -1, drv -1, data -1)
+               spi_miso       gpio      (gpio: 0x3 / PA3, mul: 2, pull -1, drv -1, data -1)
+               spi_used       int       0
+               spi_cs_bitmap  int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      spi_devices
+    sub_key:   name           type      value
+               spi_dev_num    int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      spi_board0
+    sub_key:   name           type      value
+               modalias       string    "at25df641"
+               max_speed_hz   int       50000000
+               bus_num        int       0
+               chip_select    int       0
+               mode           int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      gsensor_para
+    sub_key:   name           type      value
+               gsensor_used   int       1
+               gsensor_twi_id int       1
+               gsensor_twi_addrint       39
+               gsensor_int1   string    "PB07<4><1><default><default>"
+               gsensor_int2   invalid type!
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      gsensor_list_para
+    sub_key:   name           type      value
+               gsensor_det_usedint       0
+               bma250         int       1
+               stk831x        int       0
+               mma8452        int       1
+               mma7660        int       1
+               mma865x        int       1
+               mc32x0         int       0
+               afa750         int       1
+               lis3de_acc     int       1
+               lis3dh_acc     int       1
+               kxtik          int       1
+               dmard10        int       0
+               dmard06        int       1
+               mxc622x        int       1
+               fxos8700       int       1
+               lsm303d        int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      ctp_para
+    sub_key:   name           type      value
+               ctp_int_port   gpio      (gpio: 0x25 / PB5, mul: 4, pull -1, drv -1, data -1)
+               ctp_wakeup     gpio      (gpio: 0xe1 / PH1, mul: 1, pull -1, drv -1, data 1)
+               ctp_twi_id     int       0
+               ctp_twi_addr   int       64
+               ctp_screen_max_xint       1280
+               ctp_screen_max_yint       800
+               ctp_revert_x_flagint       1
+               ctp_revert_y_flagint       1
+               ctp_exchange_x_y_flagint       0
+               ctp_gslX680_newint       0
+               ctp_cob_gslX680int       7801
+               ctp_used       int       1
+               ctp_name       string    "gsl1680_zhishengke_1975"
+               ctp_power_ldo  string    "axp22_ldoio1"
+               ctp_power_ldo_volint       3300
+               ctp_power_io   invalid type!
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      ctp_list_para
+    sub_key:   name           type      value
+               ctp_det_used   int       0
+               ft5x_ts        int       0
+               gt82x          int       0
+               gslX680        int       0
+               gslX680new     int       1
+               gt9xx_ts       int       0
+               gt9xxf_ts      int       1
+               tu_ts          int       0
+               gt818_ts       int       0
+               zet622x        int       0
+               aw5306_ts      int       0
+               icn83xx_ts     int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      tkey_para
+    sub_key:   name           type      value
+               tkey_used      int       0
+               tkey_twi_id    invalid type!
+               tkey_twi_addr  invalid type!
+               tkey_int       invalid type!
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      motor_para
+    sub_key:   name           type      value
+               motor_shake    gpio      (gpio: 0x403 / GPIO3, mul: 1, pull -1, drv -1, data 1)
+               motor_used     int       0
+               motor_ldo      string    ""
+               motor_ldo_voltageint       3300
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      nand0_para
+    sub_key:   name           type      value
+               nand0_we       gpio      (gpio: 0x40 / PC0, mul: 2, pull -1, drv 2, data -1)
+               nand0_ale      gpio      (gpio: 0x41 / PC1, mul: 2, pull -1, drv 2, data -1)
+               nand0_cle      gpio      (gpio: 0x42 / PC2, mul: 2, pull -1, drv 2, data -1)
+               nand0_ce1      gpio      (gpio: 0x43 / PC3, mul: 2, pull -1, drv 2, data -1)
+               nand0_ce0      gpio      (gpio: 0x44 / PC4, mul: 2, pull -1, drv 2, data -1)
+               nand0_nre      gpio      (gpio: 0x45 / PC5, mul: 2, pull -1, drv 2, data -1)
+               nand0_rb0      gpio      (gpio: 0x46 / PC6, mul: 2, pull -1, drv 2, data -1)
+               nand0_rb1      gpio      (gpio: 0x47 / PC7, mul: 2, pull -1, drv 2, data -1)
+               nand0_d0       gpio      (gpio: 0x48 / PC8, mul: 2, pull -1, drv 2, data -1)
+               nand0_d1       gpio      (gpio: 0x49 / PC9, mul: 2, pull -1, drv 2, data -1)
+               nand0_d2       gpio      (gpio: 0x4a / PC10, mul: 2, pull -1, drv 2, data -1)
+               nand0_d3       gpio      (gpio: 0x4b / PC11, mul: 2, pull -1, drv 2, data -1)
+               nand0_d4       gpio      (gpio: 0x4c / PC12, mul: 2, pull -1, drv 2, data -1)
+               nand0_d5       gpio      (gpio: 0x4d / PC13, mul: 2, pull -1, drv 2, data -1)
+               nand0_d6       gpio      (gpio: 0x4e / PC14, mul: 2, pull -1, drv 2, data -1)
+               nand0_d7       gpio      (gpio: 0x4f / PC15, mul: 2, pull -1, drv 2, data -1)
+               nand0_ndqs     gpio      (gpio: 0x50 / PC16, mul: 2, pull -1, drv 2, data -1)
+               nand0_ce2      gpio      (gpio: 0x51 / PC17, mul: 2, pull -1, drv 2, data -1)
+               nand0_ce3      gpio      (gpio: 0x52 / PC18, mul: 2, pull -1, drv 2, data -1)
+               nand0_used     int       1
+               nand_support_2chint       0
+               id_number_ctl  int       2
+               nand_p1        int       131094
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      disp_init
+    sub_key:   name           type      value
+               disp_init_enableint       1
+               disp_mode      int       0
+               screen0_output_typeint       1
+               screen0_output_modeint       5
+               screen1_output_typeint       1
+               screen1_output_modeint       4
+               fb0_format     int       10
+               fb0_pixel_sequenceint       0
+               fb0_scaler_mode_enableint       0
+               fb0_width      int       800
+               fb0_height     int       1280
+               fb1_format     int       10
+               fb1_pixel_sequenceint       0
+               fb1_scaler_mode_enableint       0
+               fb1_width      int       0
+               fb1_height     int       0
+               lcd0_backlight int       204
+               lcd1_backlight int       204
+               lcd0_bright    int       50
+               lcd0_contrast  int       50
+               lcd0_saturationint       57
+               lcd0_hue       int       50
+               lcd1_bright    int       50
+               lcd1_contrast  int       50
+               lcd1_saturationint       57
+               lcd1_hue       int       50
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      lcd0_para
+    sub_key:   name           type      value
+               lcd_pwm        gpio      (gpio: 0xe0 / PH0, mul: 2, pull 0, drv -1, data -1)
+               //复位信号
+lcd_gpio_0gpio      (gpio: 0xe7 / PH7, mul: 1, pull 0, drv -1, data 0)
+               lcd_gpio_0     gpio      (gpio: 0xe7 / PH7, mul: 1, pull 0, drv -1, data 0)
+               lcd_y          int       1280
+               lcd_width      int       87
+               lcd_height     int       155
+               lcd_pwm_used   int       1
+               lcd_pwm_ch     int       0
+               lcd_pwm_freq   int       40000
+               lcd_pwm_max_limitint       255
+               lcd_pwm_pol    int       0
+               lcd_used       int       1
+               lcd_driver_namestring    "dj9365da_h3_jyx"
+               lcd_hbp        int       22
+               lcd_ht         int       880
+               lcd_hspw       int       20
+               lcd_vbp        int       14
+               lcd_vt         int       1328
+               lcd_vspw       int       4
+               lcd_dclk_freq  int       53
+               lcd_dsi_if     int       0
+               lcd_dsi_lane   int       4
+               lcd_dsi_format int       0
+               lcd_dsi_eotp   int       0
+               lcd_dsi_vc     int       0
+               lcd_dsi_te     int       0
+               lcd_frm        int       1
+               lcd_gamma_en   int       0
+               lcd_bright_curve_enint       0
+               lcd_cmap_en    int       0
+               deu_mode       int       0
+               lcdgamma4iep   int       22
+               smart_color    int       90
+               lcd_bl_0_percentint       5
+               lcd_power      string    "axp22_dc1sw"
+               lcd_power_1    string    "axp22_eldo1"
+               lcd_if         int       4
+               lcd_x          int       800
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      pwm0_para
+    sub_key:   name           type      value
+               pwm_positive   gpio      (gpio: 0xe0 / PH0, mul: 2, pull 0, drv -1, data -1)
+               pwm_used       int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      pwm1_para
+    sub_key:   name           type      value
+               pwm_positive   gpio      (gpio: 0xe1 / PH1, mul: 2, pull 0, drv -1, data -1)
+               pwm_used       int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      csi0
+    sub_key:   name           type      value
+               vip_csi_pck    gpio      (gpio: 0x80 / PE0, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_mck    gpio      (gpio: 0x81 / PE1, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_hsync  gpio      (gpio: 0x82 / PE2, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_vsync  gpio      (gpio: 0x83 / PE3, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d0     gpio      (gpio: 0x84 / PE4, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d1     gpio      (gpio: 0x85 / PE5, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d2     gpio      (gpio: 0x86 / PE6, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d3     gpio      (gpio: 0x87 / PE7, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d4     gpio      (gpio: 0x88 / PE8, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d5     gpio      (gpio: 0x89 / PE9, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d6     gpio      (gpio: 0x8a / PE10, mul: 2, pull -1, drv -1, data -1)
+               vip_csi_d7     gpio      (gpio: 0x8b / PE11, mul: 2, pull -1, drv -1, data -1)
+               vip_dev0_reset gpio      (gpio: 0x90 / PE16, mul: 1, pull -1, drv -1, data 0)
+               vip_dev0_pwdn  gpio      (gpio: 0x91 / PE17, mul: 1, pull -1, drv -1, data 1)
+               vip_dev1_reset gpio      (gpio: 0x90 / PE16, mul: 1, pull -1, drv -1, data 0)
+               vip_dev1_pwdn  gpio      (gpio: 0x8f / PE15, mul: 1, pull -1, drv -1, data 1)
+               vip_dev0_mname string    "gc2155"
+               vip_dev0_pos   string    "rear"
+               vip_dev0_lane  int       1
+               vip_dev0_twi_idint       2
+               vip_dev0_twi_addrint       120
+               vip_dev0_isp_usedint       1
+               vip_dev0_fmt   int       2
+               vip_dev0_stby_modeint       1
+               vip_dev0_vflip int       0
+               vip_dev0_hflip int       0
+               vip_dev0_iovdd string    "axp22_dldo3"
+               vip_dev0_iovdd_volint       2800000
+               vip_dev0_avdd  string    "axp22_ldoio0"
+               vip_dev0_avdd_volint       2800000
+               vip_dev0_dvdd  string    "axp22_eldo2"
+               vip_dev0_dvdd_volint       1800000
+               vip_dev0_afvdd string    "axp22_eldo3"
+               vip_dev0_afvdd_volint       2800000
+               vip_dev0_power_eninvalid type!
+               vip_used       int       0
+               vip_mode       int       0
+               vip_dev0_flash_eninvalid type!
+               vip_dev0_flash_modeinvalid type!
+               vip_dev0_af_pwdninvalid type!
+                              invalid type!
+               vip_dev1_mname string    "gc0308"
+               vip_dev1_pos   string    "front"
+               vip_dev1_lane  int       1
+               vip_dev1_twi_idint       2
+               vip_dev1_twi_addrint       66
+               vip_dev1_isp_usedint       0
+               vip_dev1_fmt   int       0
+               vip_dev1_stby_modeint       1
+               vip_dev1_vflip int       0
+               vip_dev1_hflip int       0
+               vip_dev1_iovdd string    "axp22_dldo3"
+               vip_dev1_iovdd_volint       2800000
+               vip_dev1_avdd  string    "axp22_ldoio0"
+               vip_dev1_avdd_volint       2800000
+               vip_dev1_dvdd  string    "axp22_eldo2"
+               vip_dev1_dvdd_volint       1800000
+               vip_dev1_afvdd string    "axp22_eldo3"
+               vip_dev1_afvdd_volint       2800000
+               vip_dev1_power_eninvalid type!
+               vip_dev_qty    int       2
+               vip_define_sensor_listint       1
+               vip_dev1_flash_eninvalid type!
+               vip_dev1_flash_modeinvalid type!
+               vip_dev1_af_pwdninvalid type!
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      mmc0_para
+    sub_key:   name           type      value
+               sdc_d1         gpio      (gpio: 0xa0 / PF0, mul: 2, pull 1, drv 2, data -1)
+               sdc_d0         gpio      (gpio: 0xa1 / PF1, mul: 2, pull 1, drv 2, data -1)
+               sdc_clk        gpio      (gpio: 0xa2 / PF2, mul: 2, pull 1, drv 2, data -1)
+               sdc_cmd        gpio      (gpio: 0xa3 / PF3, mul: 2, pull 1, drv 2, data -1)
+               sdc_d3         gpio      (gpio: 0xa4 / PF4, mul: 2, pull 1, drv 2, data -1)
+               sdc_d2         gpio      (gpio: 0xa5 / PF5, mul: 2, pull 1, drv 2, data -1)
+               sdc_det        gpio      (gpio: 0x24 / PB4, mul: 4, pull 1, drv 2, data -1)
+               sdc_detmode    int       2
+               sdc_buswidth   int       4
+               sdc_used       int       1
+               sdc_power_supplystring    "axp22_dcdc1"
+               sdc_use_wp     int       0
+               sdc_wp         invalid type!
+               sdc_isio       int       0
+               sdc_regulator  string    "none"
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      mmc1_para
+    sub_key:   name           type      value
+               sdc_clk        gpio      (gpio: 0xc0 / PG0, mul: 2, pull 1, drv 1, data -1)
+               sdc_cmd        gpio      (gpio: 0xc1 / PG1, mul: 2, pull 1, drv 1, data -1)
+               sdc_d0         gpio      (gpio: 0xc2 / PG2, mul: 2, pull 1, drv 1, data -1)
+               sdc_d1         gpio      (gpio: 0xc3 / PG3, mul: 2, pull 1, drv 1, data -1)
+               sdc_d2         gpio      (gpio: 0xc4 / PG4, mul: 2, pull 1, drv 1, data -1)
+               sdc_d3         gpio      (gpio: 0xc5 / PG5, mul: 2, pull 1, drv 1, data -1)
+               sdc_used       int       0
+               sdc_detmode    int       4
+               sdc_buswidth   int       4
+               sdc_det        invalid type!
+               sdc_use_wp     int       0
+               sdc_wp         invalid type!
+               sdc_isio       int       1
+               sdc_regulator  string    "none"
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      mmc2_para
+    sub_key:   name           type      value
+               sdc_clk        gpio      (gpio: 0x45 / PC5, mul: 3, pull 1, drv 2, data -1)
+               sdc_cmd        gpio      (gpio: 0x46 / PC6, mul: 3, pull 1, drv 2, data -1)
+               sdc_d0         gpio      (gpio: 0x48 / PC8, mul: 3, pull 1, drv 2, data -1)
+               sdc_d1         gpio      (gpio: 0x49 / PC9, mul: 3, pull 1, drv 2, data -1)
+               sdc_d2         gpio      (gpio: 0x4a / PC10, mul: 3, pull 1, drv 2, data -1)
+               sdc_d3         gpio      (gpio: 0x4b / PC11, mul: 3, pull 1, drv 2, data -1)
+               sdc_d4         gpio      (gpio: 0x4c / PC12, mul: 3, pull 1, drv 2, data -1)
+               sdc_d5         gpio      (gpio: 0x4d / PC13, mul: 3, pull 1, drv 2, data -1)
+               sdc_d6         gpio      (gpio: 0x4e / PC14, mul: 3, pull 1, drv 2, data -1)
+               sdc_d7         gpio      (gpio: 0x4f / PC15, mul: 3, pull 1, drv 2, data -1)
+               emmc_rst       gpio      (gpio: 0x50 / PC16, mul: 3, pull 1, drv 2, data -1)
+               sdc_2xmode     int       1
+               sdc_used       int       0
+               sdc_detmode    int       3
+               sdc_buswidth   int       8
+               sdc_power_supplystring    "axp22_dcdc1"
+               sdc_det        invalid type!
+               sdc_use_wp     int       0
+               sdc_wp         invalid type!
+               sdc_isio       int       0
+               sdc_regulator  string    "none"
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      usbc0
+    sub_key:   name           type      value
+               usb_id_gpio    gpio      (gpio: 0xe8 / PH8, mul: 0, pull 1, drv -1, data -1)
+               usb_drv_vbus_gpiogpio      (gpio: 0x404 / GPIO4, mul: 1, pull 0, drv -1, data 0)
+               usb_detect_typeint       1
+               usb_used       int       1
+               usb_det_vbus_gpiostring    "axp_ctrl"
+               usb_port_type  int       2
+               usb_restrict_gpioinvalid type!
+               usb_host_init_stateint       0
+               usb_restric_flagint       0
+               usb_restric_voltageint       3550000
+               usb_restric_capacityint       5
+               usb_regulator_iostring    "nocare"
+               usb_regulator_volint       0
+               usb_regulator_id_vbusstring    "axp22_dcdc1"
+               usb_regulator_id_vbus_volint       3000000
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      usbc1
+    sub_key:   name           type      value
+               usb_used       int       1
+               usb_drv_vbus_gpioinvalid type!
+               usb_restrict_gpioinvalid type!
+               usb_host_init_stateint       1
+               usb_restric_flagint       0
+               usb_regulator_iostring    "nocare"
+               usb_regulator_volint       0
+               usb_not_suspendint       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      usb_feature
+    sub_key:   name           type      value
+               vendor_id      int       7994
+               mass_storage_idint       4096
+               adb_id         int       4097
+               manufacturer_namestring    "USB Developer"
+               product_name   string    "Android"
+               serial_number  string    "20080411"
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      wifi_para
+    sub_key:   name           type      value
+               wl_reg_on      gpio      (gpio: 0x166 / PL6, mul: 1, pull -1, drv -1, data 0)
+               wl_host_wake   gpio      (gpio: 0x167 / PL7, mul: 4, pull -1, drv -1, data 0)
+               wifi_usbc_id   int       1
+               wifi_usbc_type int       1
+               wifi_used      int       1
+               wifi_sdc_id    int       1
+               wl_host_wake_invertint       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      bt_para
+    sub_key:   name           type      value
+               bt_used        int       0
+               bt_uart_id     int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      3g_para
+    sub_key:   name           type      value
+               bb_pwr_on      gpio      (gpio: 0x163 / PL3, mul: 1, pull -1, drv -1, data 0)
+               bb_wake        gpio      (gpio: 0x164 / PL4, mul: 1, pull -1, drv -1, data 0)
+               bb_rf_dis      gpio      (gpio: 0x16b / PL11, mul: 1, pull -1, drv -1, data 0)
+               bb_rst         gpio      (gpio: 0x165 / PL5, mul: 1, pull -1, drv -1, data 0)
+               bb_vbat        invalid type!
+               bb_on          invalid type!
+               3g_used        int       0
+               3g_usbc_num    int       1
+               3g_uart_num    int       2
+               bb_name        string    "em66"
+               bb_dldo        string    "axp22_aldo1"
+               bb_dldo_min_uV int       2800000
+               bb_dldo_max_uV int       2800000
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      gy_para
+    sub_key:   name           type      value
+               gy_used        int       0
+               gy_twi_id      int       1
+               gy_twi_addr    int       106
+               gy_int1        invalid type!
+               gy_int2        invalid type!
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      ls_para
+    sub_key:   name           type      value
+               ls_int         gpio      (gpio: 0x27 / PB7, mul: 4, pull 1, drv -1, data -1)
+               ls_twi_id      int       1
+               ls_twi_addr    int       35
+               ls_used        int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      compass_para
+    sub_key:   name           type      value
+               compass_used   int       0
+               compass_twi_id int       1
+               compass_twi_addrint       13
+               compass_int    invalid type!
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      audio0
+    sub_key:   name           type      value
+               audio_pa_ctrl  gpio      (gpio: 0xe9 / PH9, mul: 1, pull -1, drv -1, data 0)
+               audio_hp_ldo   string    "none"
+               headphone_vol  int       59
+               earpiece_vol   int       59
+               cap_vol        int       7
+               pa_single_vol  int       62
+               pa_double_used int       1
+               pa_double_vol  int       62
+               headphone_direct_usedint       1
+               headset_mic_volint       3
+               main_mic_vol   int       1
+               audio_used     int       1
+               aif2_used      int       0
+               aif3_used      int       0
+               headphone_mute_usedint       0
+               DAC_VOL_CTRL_SPKint       41120
+               DAC_VOL_CTRL_HEADPHONEint       41120
+               agc_used       int       0
+               drc_used       int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      Vdevice
+    sub_key:   name           type      value
+               Vdevice_0      gpio      (gpio: 0x1 / PA1, mul: 5, pull 1, drv 2, data -1)
+               Vdevice_1      gpio      (gpio: 0x2 / PA2, mul: 5, pull 1, drv 2, data -1)
+               Vdevice_used   int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      s_rsb0
+    sub_key:   name           type      value
+               s_rsb_sck      gpio      (gpio: 0x160 / PL0, mul: 2, pull 1, drv 2, data -1)
+               s_rsb_sda      gpio      (gpio: 0x161 / PL1, mul: 2, pull 1, drv 2, data -1)
+               s_rsb_used     int       1
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      s_jtag0
+    sub_key:   name           type      value
+               s_jtag_tms     gpio      (gpio: 0x164 / PL4, mul: 2, pull 1, drv 2, data -1)
+               s_jtag_tck     gpio      (gpio: 0x165 / PL5, mul: 2, pull 1, drv 2, data -1)
+               s_jtag_tdo     gpio      (gpio: 0x166 / PL6, mul: 2, pull 1, drv 2, data -1)
+               s_jtag_tdi     gpio      (gpio: 0x167 / PL7, mul: 2, pull 1, drv 2, data -1)
+               s_jtag_used    int       0
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      s_powchk
+    sub_key:   name           type      value
+               s_powchk_used  int       -2147483648
+               s_power_reg    int       32865
+               s_system_power int       50
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      dvfs_table
+    sub_key:   name           type      value
+               extremity_freq int       1344000000
+               max_freq       int       1200000000
+               min_freq       int       480000000
+               LV_count       int       8
+               LV1_freq       int       1536000000
+               LV1_volt       int       1500
+               LV2_freq       int       1344000000
+               LV2_volt       int       1460
+               LV3_freq       int       1200000000
+               LV3_volt       int       1320
+               LV4_freq       int       1008000000
+               LV4_volt       int       1200
+               LV5_freq       int       816000000
+               LV5_volt       int       1100
+               LV6_freq       int       648000000
+               LV6_volt       int       1040
+               LV7_freq       int       0
+               LV7_volt       int       1040
+               LV8_freq       int       0
+               LV8_volt       int       1040
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      pmu1_para
+    sub_key:   name           type      value
+               pmu_used       int       1
+               pmu_twi_addr   int       52
+               pmu_twi_id     int       1
+               pmu_irq_id     int       0
+               pmu_battery_rdcint       100
+               pmu_battery_capint       4000
+               pmu_batdeten   int       0
+               pmu_chg_ic_tempint       0
+               pmu_runtime_chgcurint       300
+               pmu_earlysuspend_chgcurint       1200
+               pmu_suspend_chgcurint       1200
+               pmu_shutdown_chgcurint       1200
+               pmu_init_chgvolint       4200
+               pmu_init_chgend_rateint       15
+               pmu_init_chg_enabledint       0
+               pmu_init_adc_freqint       800
+               pmu_init_adcts_freqint       800
+               pmu_init_chg_pretimeint       70
+               pmu_init_chg_csttimeint       720
+               pmu_batt_cap_correctint       1
+               pmu_bat_regu_enint       0
+               pmu_bat_para1  int       0
+               pmu_bat_para2  int       0
+               pmu_bat_para3  int       0
+               pmu_bat_para4  int       0
+               pmu_bat_para5  int       0
+               pmu_bat_para6  int       0
+               pmu_bat_para7  int       0
+               pmu_bat_para8  int       0
+               pmu_bat_para9  int       1
+               pmu_bat_para10 int       2
+               pmu_bat_para11 int       3
+               pmu_bat_para12 int       5
+               pmu_bat_para13 int       10
+               pmu_bat_para14 int       16
+               pmu_bat_para15 int       31
+               pmu_bat_para16 int       43
+               pmu_bat_para17 int       49
+               pmu_bat_para18 int       53
+               pmu_bat_para19 int       57
+               pmu_bat_para20 int       60
+               pmu_bat_para21 int       63
+               pmu_bat_para22 int       66
+               pmu_bat_para23 int       71
+               pmu_bat_para24 int       77
+               pmu_bat_para25 int       80
+               pmu_bat_para26 int       84
+               pmu_bat_para27 int       88
+               pmu_bat_para28 int       92
+               pmu_bat_para29 int       94
+               pmu_bat_para30 int       96
+               pmu_bat_para31 int       98
+               pmu_bat_para32 int       100
+               pmu_usbvol_limitint       0
+               pmu_usbcur_limitint       0
+               pmu_usbvol     int       4000
+               pmu_usbcur     int       0
+               pmu_usbvol_pc  int       4400
+               pmu_usbcur_pc  int       500
+               pmu_pwroff_vol int       3300
+               pmu_pwron_vol  int       2600
+               pmu_pekoff_timeint       6000
+               pmu_pekoff_funcint       1
+               pmu_pekoff_en  int       1
+               pmu_peklong_timeint       1500
+               pmu_pekon_time int       1000
+               pmu_pwrok_time int       64
+               pmu_battery_warning_level1int       15
+               pmu_battery_warning_level2int       0
+               pmu_restvol_adjust_timeint       60
+               pmu_ocv_cou_adjust_timeint       60
+               pmu_chgled_funcint       1
+               pmu_chgled_typeint       0
+               pmu_vbusen_funcint       1
+               pmu_reset      int       0
+               pmu_IRQ_wakeup int       1
+               pmu_hot_shutdowmint       1
+               pmu_inshort    int       0
+               power_start    int       3
+               pmu_temp_enableint       1
+               pmu_charge_ltf int       2261
+               pmu_charge_htf int       388
+               pmu_discharge_ltfint       3200
+               pmu_discharge_htfint       237
+               pmu_temp_para1 int       7466
+               pmu_temp_para2 int       4480
+               pmu_temp_para3 int       3518
+               pmu_temp_para4 int       2786
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      key_para
+    sub_key:   name           type      value
+               key_used       int       1
+               key_cnt        int       2
+               key1_vol       int       6
+               key1_code      int       115
+               key2_vol       int       12
+               key2_code      int       114
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      recovery_key
+    sub_key:   name           type      value
+               key_min        int       16
+               key_max        int       19
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      rf_para
+    sub_key:   name           type      value
+               module_num     int       11
+               module_power1  string    "axp22_dldo1"
+               module_power1_volint       3300000
+               module_power2  string    "axp22_dldo2"
+               module_power2_volint       3300000
+               module_power3  string    ""
+               module_power3_volinvalid type!
+               power_switch   invalid type!
+               chip_en        invalid type!
+               lpo_use_apclk  string    ""
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      gpu_mali400_0
+    sub_key:   name           type      value
+               normal_freq    int       384
+               scene_ctrl_statusint       0
+               temp_ctrl_statusint       1
+               tf0_temp       int       85
+               tf0_freq       int       240
+               tf1_temp       int       95
+               tf1_freq       int       144
+--------------------------__sysfs_dump_mainkey--------------------------
+++++++++++++++++++++++++++__sysfs_dump_mainkey++++++++++++++++++++++++++
+    name:      mali_para
+    sub_key:   name           type      value
+               mali_used      int       1
+               mali_clkdiv    int       1
+               mali_extreme_freqint       408
+               mali_extreme_volint       1100
+--------------------------__sysfs_dump_mainkey--------------------------
